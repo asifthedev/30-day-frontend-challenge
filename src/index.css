@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("./days/day-03/fonts/Satoshi-Variable.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer utilities {
+  @keyframes slideInLeft {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.6s ease-out forwards;
+  }
+}
+
+body {
+  font-family: "Satoshi", sans-serif;
+  background-color: #efefef;
+  margin: 0;
+}
