@@ -1,24 +1,42 @@
-# React + TypeScript + Vite
+# 30-day frontend challenge
+
+This repo is set up for a one-component-per-day frontend challenge. The app shell stays in one place, and each day lives in its own folder with its own demo data and static assets.
+
+## Quick Start
+
+```bash
+npm install
+npm run dev
+```
+
+Use `npm run build` to verify the project still compiles before you move on to the next day.
+
+## How To Add A New Day
+
+1. Create a new folder under [src/days](src/days) such as [src/days/day-04](src/days/day-04).
+2. Put the component file for that day in the same folder.
+3. Keep the demo data for that component in a small local file like `demo.ts`.
+4. Place related images, icons, and fonts inside `assets` and `fonts` inside that day folder.
+5. Export the day from an `index.ts` file so the app can import it cleanly.
+
+## Asset Placement
+
+Follow this rule of thumb:
+
+- Use [src/days/day-03/assets](src/days/day-03/assets) for images and icons that belong only to day 03.
+- Use [src/days/day-03/fonts](src/days/day-03/fonts) for fonts used only by that component or day.
+- Create a shared assets folder only when multiple days truly reuse the same file.
+
+## Current Folder Structure
+
+- [src/app/App.tsx](src/app/App.tsx) renders the active day.
+- [src/days/day-03/PropertyCard.tsx](src/days/day-03/PropertyCard.tsx) contains the day 03 component.
+- [src/days/day-03/demo.ts](src/days/day-03/demo.ts) owns the sample data and images.
+- [src/days/day-03/index.ts](src/days/day-03/index.ts) exports the day cleanly.
+
+## Template Notes
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
-
-## Folder structure
-
-This repo is organized around one root app shell and one folder per day under [src/days](src/days). Each day owns its component, its demo data, and its colocated static assets.
-
-### Suggested pattern
-
-- Put the root application shell in [src/app](src/app).
-- Put each challenge component in [src/days/day-XX](src/days/day-03).
-- Keep component-specific images, icons, and fonts inside that same day folder under `assets` and `fonts`.
-- Put shared assets only in a shared folder if they are reused across multiple days.
-
-### Current example
-
-- [src/app/App.tsx](src/app/App.tsx) renders the active challenge.
-- [src/days/day-03/PropertyCard.tsx](src/days/day-03/PropertyCard.tsx) contains the card UI.
-- [src/days/day-03/demo.ts](src/days/day-03/demo.ts) owns the sample data and images for that card.
-- [src/days/day-03/assets](src/days/day-03/assets) and [src/days/day-03/fonts](src/days/day-03/fonts) hold the related static files.
 
 Currently, two official plugins are available:
 
@@ -48,5 +66,3 @@ If you are developing a production application, we recommend enabling type-aware
 ```
 
 See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
-
-# 30-day-frontend-challenge-
