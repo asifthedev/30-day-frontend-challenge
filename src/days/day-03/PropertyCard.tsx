@@ -16,19 +16,39 @@ type CardProps = {
   ctaHref: string;
 };
 
-function Card({
-  images,
-  price,
-  priceLabel,
-  title,
-  location,
-  author,
-  postedAgo,
-  livingArea,
-  rooms,
-  ctaLabel,
-  ctaHref,
-}: CardProps) {
+const propertyCardDemo: CardProps = {
+  images: [
+    new URL("./assets/bg1.avif", import.meta.url).href,
+    new URL("./assets/bg2.jpg", import.meta.url).href,
+    new URL("./assets/bg3.png", import.meta.url).href,
+    new URL("./assets/bg4.jpg", import.meta.url).href,
+  ],
+  price: "$56,000",
+  priceLabel: "List Price",
+  title: "Guillaume Briard",
+  location: "Harry Konigsberg's, 1063 AG",
+  author: "Asif Shahzad",
+  postedAgo: "2 days ago",
+  livingArea: "29m²",
+  rooms: "2",
+  ctaLabel: "Learn More",
+  ctaHref: "#",
+};
+
+function Card(props: Partial<CardProps> = {}) {
+  const {
+    images = propertyCardDemo.images,
+    price = propertyCardDemo.price,
+    priceLabel = propertyCardDemo.priceLabel,
+    title = propertyCardDemo.title,
+    location = propertyCardDemo.location,
+    author = propertyCardDemo.author,
+    postedAgo = propertyCardDemo.postedAgo,
+    livingArea = propertyCardDemo.livingArea,
+    rooms = propertyCardDemo.rooms,
+    ctaLabel = propertyCardDemo.ctaLabel,
+    ctaHref = propertyCardDemo.ctaHref,
+  } = props;
   const [isSliderStopped, setIsSliderStopped] = useState(false);
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -53,7 +73,7 @@ function Card({
     <>
       <div
         aria-label="card"
-        className={`flex min-w-0 gap-4 flex-col bg-white rounded-[20px] p-3 border border-gray-200 card-shadow sm:flex-row md:w-85 lg:flex-col`}
+        className={`flex min-w-0 gap-4 flex-col bg-white rounded-[20px] p-3 border border-gray-200 card-shadow sm:flex-row lg:flex-col lg:w-85`}
       >
         {/* Image area with simple dots for manual image switching. */}
         <div
